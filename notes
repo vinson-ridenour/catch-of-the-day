@@ -1,0 +1,11 @@
+// everything in react is a component
+
+// attributes tell the tag what to render/do/expect
+// <img src="dog.jpg" alt="Dog">
+// <input type="text">
+
+// Same with React components, but they're called PROPS - props are the way we get data into a component
+// Props is how the data gets to where it needs to go (like the car)
+// State is the data's home
+
+// Helper functions (JS not React specific)
