@@ -9,3 +9,6 @@
 // State is the data's home
 
 // Helper functions (JS not React specific)
+
+// Events in React are wrapped in SyntheticEvent (works across all browsers/devices)
+// Events are done IN-LINE
