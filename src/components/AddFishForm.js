@@ -14,7 +14,7 @@ class AddFishForm extends React.Component {
       name: this.nameRef.current.value,
       price: parseFloat(this.priceRef.current.value),
       status: this.statusRef.current.value,
-      description: this.descriptionRef.current.value,
+      desc: this.descriptionRef.current.value,
       image: this.imageRef.current.value
     }
     this.props.addFish(fish)
@@ -35,11 +35,7 @@ class AddFishForm extends React.Component {
           <option value='available'>Fresh!</option>
           <option value='unavailable'>Sold Out!</option>
         </select>
-        <textarea
-          name='description'
-          ref={this.descriptionRef}
-          placeholder='Description'
-        />
+        <textarea name='desc' ref={this.descriptionRef} placeholder='Desc' />
         <input
           name='image'
           ref={this.imageRef}
