@@ -4,12 +4,42 @@ import Order from './Order'
 import Inventory from './Inventory'
 import sampleFishes from '../sample-fishes'
 import Fish from './Fish'
+import base from '../base'
 
 class App extends React.Component {
   // the state and the methods that update state need to live in the exact same component
   state = {
     fishes: {},
     order: {}
+  }
+
+  componentDidMount() {
+    // once App mounts (initial load included), sync with FB DB
+    const { params } = this.props.match
+    // first re-instate any localStorage
+    const localStorageRef = localStorage.getItem(params.storeId)
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) })
+    }
+    console.log(localStorageRef)
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: 'fishes'
+    })
+  }
+
+  // runs when anything is updated, NOT on initial load
+  componentDidUpdate() {
+    // console.log(this.state.order)
+    localStorage.setItem(
+      this.props.match.params.storeId,
+      JSON.stringify(this.state.order)
+    )
+  }
+  // if user goes back and forth between stores, can lead to "memory leak" as FB would never UNlisten for changes
+  componentWillUnmount() {
+    // this will UNlisten once component is unmounted
+    base.removeBinding(this.ref)
   }
   addFish = fish => {
     // take copy of existing state (so you don't "mutate" the state directly)
