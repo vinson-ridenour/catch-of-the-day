@@ -65,6 +65,14 @@ class App extends React.Component {
     })
   }
 
+  deleteFish = key => {
+    // snapshot of state
+    const fishes = { ...this.state.fishes }
+    // update state
+    fishes[key] = null // for FB to update
+    this.setState({ fishes })
+  }
+
   loadSampleFishes = () => {
     this.setState({
       fishes: sampleFishes
@@ -77,6 +85,15 @@ class App extends React.Component {
     // either add or subtract from number in order
     // if order.fish[key] exists, increment
     order[key] = order[key] + 1 || 1
+    // setState to update our state object
+    this.setState({ order: order })
+  }
+
+  removeFromOrder = key => {
+    // take copy of state
+    const order = { ...this.state.order }
+    // remove item from order
+    delete order[key]
     // setState to update our state object
     this.setState({ order: order })
   }
@@ -97,10 +114,15 @@ class App extends React.Component {
             ))}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />

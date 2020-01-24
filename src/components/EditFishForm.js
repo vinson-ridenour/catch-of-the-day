@@ -21,13 +21,13 @@ class EditFishForm extends React.Component {
           name='name'
           onChange={this.handleChange}
           value={this.props.fish.name}
-        ></input>
+        />
         <input
           type='text'
           name='price'
           onChange={this.handleChange}
           value={this.props.fish.price}
-        ></input>
+        />
         <select
           type='text'
           name='status'
@@ -41,13 +41,16 @@ class EditFishForm extends React.Component {
           name='desc'
           onChange={this.handleChange}
           value={this.props.fish.desc}
-        ></textarea>
+        />
         <input
           type='text'
           name='image'
           onChange={this.handleChange}
           value={this.props.fish.image}
-        ></input>
+        />
+        <button onClick={() => this.props.deleteFish(this.props.index)}>
+          Remove Fish
+        </button>
       </div>
     )
   }
