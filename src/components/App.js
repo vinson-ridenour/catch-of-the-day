@@ -36,11 +36,13 @@ class App extends React.Component {
       JSON.stringify(this.state.order)
     )
   }
+
   // if user goes back and forth between stores, can lead to "memory leak" as FB would never UNlisten for changes
   componentWillUnmount() {
     // this will UNlisten once component is unmounted
     base.removeBinding(this.ref)
   }
+
   addFish = fish => {
     // take copy of existing state (so you don't "mutate" the state directly)
     const fishes = { ...this.state.fishes }
@@ -51,6 +53,18 @@ class App extends React.Component {
       fishes
     })
   }
+
+  updateFish = (key, updatedFish) => {
+    // take copy of current state
+    const fishes = { ...this.state.fishes }
+    // update state
+    fishes[key] = updatedFish
+    // set that to state
+    this.setState({
+      fishes: fishes
+    })
+  }
+
   loadSampleFishes = () => {
     this.setState({
       fishes: sampleFishes
@@ -86,7 +100,9 @@ class App extends React.Component {
         <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
           addFish={this.addFish}
+          updateFish={this.updateFish}
           loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
         />
       </div>
     )
