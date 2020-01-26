@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types' // used to check type
 
 // implicit return, better performance with stateless fxn components
 const Header = props => (
@@ -16,6 +17,11 @@ const Header = props => (
     </h3>
   </header>
 )
+
+// every prop and its type in an object
+Header.propTypes = {
+  tagline: PropTypes.string.isRequired
+}
 
 // class Header extends React.Component {
 //   render() {
