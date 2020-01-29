@@ -399,12 +399,12 @@ ul {
 ul.order li {
   border-bottom: 1px solid #000;
   padding: 2rem 0;
-  display: -webkit-box;
+  /* display: -webkit-box; */
   display: flex;
   font-size: 1.4rem;
-  -webkit-box-pack: justify;
+  /* -webkit-box-pack: justify; */
   justify-content: space-between;
-  -webkit-box-align: center;
+  /* -webkit-box-align: center; */
   align-items: center;
 }
 ul.order li:hover button {
