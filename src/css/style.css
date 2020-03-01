@@ -647,3 +647,9 @@ input[type='submit'].twitter:after {
   text-align: center;
   font-size: 3rem;
 }
+
+#instructions {
+  font-weight: normal;
+  text-transform: none;
+  color: red;
+}
