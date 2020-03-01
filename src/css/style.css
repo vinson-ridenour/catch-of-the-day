@@ -644,7 +644,7 @@ input[type='submit'].twitter:after {
 }
 
 #instructions {
+  font-family: none;
   font-weight: normal;
   text-transform: lowercase;
-  color: red;
 }
