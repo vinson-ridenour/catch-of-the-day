@@ -264,6 +264,12 @@ h2 {
 h3 {
   font-size: 3rem;
 }
+
+#instructions {
+  font-weight: normal;
+  text-transform: none;
+}
+
 header.top {
   text-align: center;
 }
