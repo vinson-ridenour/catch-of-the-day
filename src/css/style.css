@@ -265,11 +265,6 @@ h3 {
   font-size: 3rem;
 }
 
-#instructions {
-  font-weight: normal;
-  text-transform: none;
-}
-
 header.top {
   text-align: center;
 }
@@ -650,6 +645,6 @@ input[type='submit'].twitter:after {
 
 #instructions {
   font-weight: normal;
-  text-transform: none;
+  text-transform: lowercase;
   color: red;
 }
